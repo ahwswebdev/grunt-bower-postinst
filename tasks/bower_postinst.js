@@ -101,6 +101,11 @@ module.exports = function(grunt) {
                             var action = unspaceArgs(item);
                             var cmd = (isWin) ? 'cmd' : action[0];
                             var args = (isWin) ? ['/c'].concat(action) : action.slice(1);
+
+                            //pass parent flags to grunt action
+                            if (action[0].match(/grunt/)) {
+                                args = args.concat(grunt.option.flags());
+                            }
                             
                             grunt.log.writeln('Running on ' + compDir + ' : ' + cmd + ' ' + args.join(' '));
                             
