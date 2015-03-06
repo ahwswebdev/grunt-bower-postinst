@@ -51,7 +51,7 @@ module.exports = function(grunt) {
             } else {
                 // Unix: escape spaces in paths
                 args = args.map(function(item) {
-                    return item.replace(' ', '\\ ');
+                    return item.replace(/(\s)(?!-)/g, '\\ ');
                 });
             }
             return args;
