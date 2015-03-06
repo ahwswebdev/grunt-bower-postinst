@@ -106,6 +106,10 @@ module.exports = function(grunt) {
                             if (action[0].match(/grunt/)) {
                                 args = args.concat(grunt.option.flags());
                             }
+
+                            if (action[0].match(/bower/)) {
+                                args = args.concat(action[0].match(/(--[a-z=0-9]+)/g));
+                            }
                             
                             grunt.log.writeln('Running on ' + compDir + ' : ' + cmd + ' ' + args.join(' '));
                             
