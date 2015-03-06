@@ -107,10 +107,6 @@ module.exports = function(grunt) {
                                 args = args.concat(grunt.option.flags());
                             }
 
-                            if (action[0].match(/bower/)) {
-                                args = args.concat(action[0].match(/(--[a-z=0-9]+)/g));
-                            }
-                            
                             grunt.log.writeln('Running on ' + compDir + ' : ' + cmd + ' ' + args.join(' '));
                             
                             var child = spawn(cmd, args, {
